@@ -1,0 +1,63 @@
+* {margin:0;padding:0;} 
+
+html, body {height: 100%;overflow: auto;}
+
+body > section {height: auto; }
+body {
+	background-color:#ffffff;
+    font: normal 12px Verdana, Arial, Helvetica, sans-serif;
+	color:#2a2a2a;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+
+a:link, a:visited {
+	color: #0f79ad;
+	text-decoration: none;
+}
+a:hover, a:active {
+	color: #0f79ad;
+	text-decoration: underline;
+}
+header{
+	height: 50px;
+	background: #48525e;
+	color: white;
+}
+header h1{
+	padding: 10px;
+}
+section{
+
+}
+div.controls{
+	height: 100px;
+	background: #e5e5e5;
+	border-bottom: 2px solid #E1E1E1;
+	border-top: 2px solid #E1E1E1;
+}
+div.drawbox{
+	min-height: 480px;
+	position: relative;
+	overflow: auto;
+	
+}
+section canvas{
+
+}
+
+footer{
+	text-align: center;
+	background: #e5e5e5;	
+	height: 15px;
+	margin: 0;
+	padding:0;
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+}
+
+.rect{
+	cursor: text;
+
+}

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="jquery.js"></script>
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<textarea id='xx' style="width:350px;height:50px;padding:10px;"></textarea>
+		<button id="ok">ok</button>
+	</div>
+	<script type="text/javascript">
+	$('#ok').click(function(){
+		var text1 = $('textarea').val();
+		console.log('text1',text1);
+		$('#xx').val('mememe');
+	});
+	
+	</script>
+</body>
+</html>
