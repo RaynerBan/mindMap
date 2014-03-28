@@ -1,0 +1,1 @@
+web minMap based on SVG
