@@ -176,9 +176,10 @@ BAN.MindMap = {
 				$('#div_edit').fadeOut(function(){this.remove();});
 				
 			});
-			
+		
 			e.stopPropagation();
 		});	
+		
 	},
 	addTopic : function(parent_id, level, cx, cy, content, font_offset){
 		//create and return a node object contain parent
@@ -288,7 +289,7 @@ BAN.MindMap = {
 	resetTopicPos_level1 : function(root){
 		var nodes = root.children;
 		var length = nodes.length;
-		console.log(length);
+		//console.log(length);
 		var x = this.svgX/2+300;
 		for(var i=0; i<length; i++){
 			var y = (i+1)/(length+1)*this.svgY;
@@ -311,3 +312,47 @@ BAN.MindMap = {
 
 })();
 BAN.MindMap.initMindMap();
+//import as svg
+$('#save').on('click',function(e){
+			e.stopPropagation();
+			var svg_xml = (new XMLSerializer).serializeToString(BAN.MindMap.drawbox.node);
+			var uri = 'data:application/json,' + encodeURI( svg_xml);
+			var a = document.createElement('a');
+			a.download = 'mindMap.svg';  // optional
+			a.href = uri;
+			
+			//for firefox
+			function fireEvent(obj,evt){
+			  var fireOnThis = obj;
+			  if(document.createEvent ) {
+			    var evObj = document.createEvent('MouseEvents');
+			    evObj.initEvent( evt, true, false );
+			    fireOnThis.dispatchEvent( evObj );
+			  } else if( document.createEventObject ) {
+			    var evObj = document.createEventObject();
+			    fireOnThis.fireEvent( 'on' + evt, evObj );
+			  }
+			}
+			fireEvent(a, 'click');
+		});
+
+$('#load').on('click',function(e){
+	e.stopPropagation();
+	var x = (new XMLSerializer).serializeToString(BAN.MindMap.topicNodeArray);
+    console.log(x);
+
+	var doc = prompt('get file here');
+      if (doc != null && doc != '') {
+        var store = BAN.MindMap.drawbox.clear().svg(doc);
+        BAN.MindMap.drawbox = store;
+    }
+});
+var svgx = $('#drawbox').width();
+var svgy = $('#drawbox').height();
+var svgs ='<svg id="SvgjsSvg1000" xmlns="http://www.w3.org/2000/svg" version="1.1" width="1280" height="480" xmlns:xlink="http://www.w3.org/1999/xlink"><ellipse id="SvgjsEllipse1006" rx="5" ry="5" cx="640" cy="240" fill="#55ee33" stroke="#33eeee"></ellipse><g id="SvgjsG1007" class="group g-selected"><rect id="SvgjsRect1008" width="200" height="50" x="540" y="215" rx="10" ry="10" fill="#44aaee" stroke="#000000" stroke-width="2" class="rect"></rect><text id="SvgjsText1009" font-family="微软雅黑" x="640" y="211.203125" font-size="30" text-anchor="middle" class="text"><tspan id="SvgjsTspan1010" dy="39" x="640">MainTopic</tspan></text></g><g id="SvgjsG1011" class="group"><rect id="SvgjsRect1012" width="157" height="27" x="915" y="96" rx="10" ry="10" fill="#44ffee" stroke="#000000" stroke-width="2" class="rect"></rect><text id="SvgjsText1013" font-family="微软雅黑" x="990" y="91" font-size="20" text-anchor="middle" class="text"><tspan id="SvgjsTspan1014" dy="26" x="990">SubTopic 1</tspan></text></g><g id="SvgjsG1015" class="group"><rect id="SvgjsRect1016" width="157" height="27" x="915" y="192" rx="10" ry="10" fill="#44ffee" stroke="#000000" stroke-width="2" class="rect"></rect><text id="SvgjsText1017" font-family="微软雅黑" x="990" y="187" font-size="20" text-anchor="middle" class="text"><tspan id="SvgjsTspan1018" dy="26" x="990">SubTopic 1</tspan></text></g><g id="SvgjsG1019" class="group"><rect id="SvgjsRect1020" width="157" height="27" x="915" y="288" rx="10" ry="10" fill="#44ffee" stroke="#000000" stroke-width="2" class="rect"></rect><text id="SvgjsText1021" font-family="微软雅黑" x="990" y="283" font-size="20" text-anchor="middle" class="text"><tspan id="SvgjsTspan1022" dy="26" x="990">SubTopic 1</tspan></text></g><g id="SvgjsG1023" class="group"><rect id="SvgjsRect1024" width="157" height="27" x="918.5" y="382.5" rx="10" ry="10" fill="#44ffee" stroke="#000000" stroke-width="2" class="rect"></rect><text id="SvgjsText1025" font-family="微软雅黑" x="990" y="379" font-size="20" text-anchor="middle" class="text"><tspan id="SvgjsTspan1026" dy="26" x="990">SubTopic 1</tspan></text></g><defs id="SvgjsDefs1001"></defs></svg>';
+var store = BAN.MindMap.drawbox.clear().size(svgx,svgy).svg(svgs);
+
+BAN.MindMap.drawbox = store._importStoreRoots.members[0].node.instance;
+
+console.log($('#drawbox .group'));
+
