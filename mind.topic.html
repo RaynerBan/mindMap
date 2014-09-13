@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" charset="utf-8" href="css/mind.css">
+	<title>Mind-Map</title>
+</head>
+<body>
+	<header>
+		<hgroup><h1>Mind-Map</h1></hgroup>
+	</header>
+	<section>
+		<div class="controls">
+			<div class="btn-part">
+				<button id="load" class="btn btn-stroage">载入</button>
+				<button id="save" class="btn btn-stroage">另存为</button>
+			</div>
+			<div class="btn-part">
+				<button id="newTopic" class="btn btn-node">新建主题</button>
+				<button id="subTopic" class="btn btn-node">插入子节点</button>
+				<button id="subTopic" class="btn btn-node">插入同级节点</button>
+				<button id="subTopic" class="btn btn-node">删除节点</button>
+			</div>
+			<div class="btn-part">
+				<button id="edit_show" class="btn btn-edit">编辑主题</button>
+			</div>
+			<div class="btn-part">
+				<button id="" class="btn btn-layout">主题布局</button>
+				<button id="" class="btn btn-layout">连线形状</button>
+			</div>
+			<div class="list save-as">
+				<ul>
+				<li><button class="btn btn-saveas">.svg</button></li>
+				<li><button class="btn btn-saveas">.png</button></li>
+				<li><button class="btn btn-saveas">.jpg</button></li>
+				<li><button class="btn btn-saveas">.mm</button></li>
+				</ul>
+			</div>
+			<div class="list layout-style">
+				<ul>
+				<li><button class="btn btn-layout-style">树状</button></li>
+				<li><button class="btn btn-layout-style">图状</button></li>
+				</ul>
+			</div>
+			<div class="list layout-path">
+				<ul>
+				<li><button class="btn btn-layout-path">弧形</button></li>
+				<li><button class="btn btn-layout-path">直线</button></li>
+				</ul>
+			</div>
+			<div class="list edit">
+				<ul>
+					<li><button id='edit-btn' class="btn btn-edit">Edit Text</button></li>
+					<li><button class="btn btn-edit">B</button></li>
+					<li><button class="btn btn-edit">Font</button></li>
+					<li><button class="btn btn-edit">Size</button></li>
+					<li><button class="btn btn-edit">Color</button></li>
+					<li><button class="btn btn-edit">BgColor</button></li>
+					<li><button class="btn btn-edit">BoxShape</button></li>
+					<li><button class="btn btn-fadeout">CANCLE</button></li>
+				</ul>
+			</div>
+		</div>
+		<div id="drawbox" class="drawbox">				
+		</div>
+		
+	</section>
+	<footer>2014 copyRight@ liaopr</footer>
+	<script type="text/javascript" src="lib/jquery.js" charset="utf-8"></script>
+	
+	<script type="text/javascript" src="lib/svg.js" charset="utf-8"></script>
+	<script type="text/javascript" src="lib/svg.path.js" charset="utf-8"></script>
+	
+	<script type="text/javascript" src="lib/svg.parser.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="lib/svg.import.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/mind.topic.js" charset="utf-8"></script>
+</body>
+</html>
